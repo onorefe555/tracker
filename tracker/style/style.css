@@ -1,0 +1,118 @@
+body{
+    background-color: antiquewhite;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    margin: 10px auto;
+    width: 450px;
+    box-shadow: 0 1px 5px rgba(250 250 0.2), 0 1px 5px rgba(255 255 255 0.3);
+}
+#whole_income{
+    color: rgba(165, 42, 42, 0.77);
+    font-size: 55px; 
+}
+.amount-expen{
+display: flex;
+flex: 1;
+justify-content: space-between;
+text-align: center;
+margin: 20px 0;
+background-color: rgba(165, 42, 42, 0.77);
+}
+.amount{
+    border-right:solid 2px antiquewhite; 
+     padding-left: 30px;
+}
+.amount-expen input{
+    border: none;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+}
+.amount-expen-li{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px 0;
+    background-color: rgba(220, 220, 220, 0.891);
+    color: rgba(165, 42, 42, 0.77);
+    font-weight: bold;
+}
+.amount-expen-li p{
+   margin-bottom: 40px;
+}
+.amount-expen-li input{
+    border: none;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.amount-exp-deliver{
+    display: flex;
+    text-align: center;
+    flex: 1;
+    justify-content: space-between;
+    font-size: 13px;
+    background-color: rgba(165, 42, 42, 0.77);
+    color: whitesmoke;
+}
+.expen_cont{
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    text-align: center;
+    margin: 20px 0;
+    background-color: antiquewhite;
+    color: rgba(165, 42, 42, 0.77);
+    font-weight: bold;
+}
+.expen_cont p{
+    margin-bottom: 35px;
+}
+.expen_cont input{
+    border: none;
+    padding: 10px;
+    width: 70%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.exp h1{
+    color: rgba(255, 0, 0, 0.704);
+}
+.amount h1{
+    color: rgba(0, 128, 0, 0.864);
+}
+.amount-exp-deliver button{
+    padding: 10px 30px;
+    background-color: antiquewhite;
+    color: rgba(165, 42, 42, 0.77);
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.amount-exp-deliver button:hover, #clear_btn:hover{
+    background-color: green;
+    color: white;
+}
+#clear_btn{
+    padding: 10px 30px;
+    background-color: rgba(165, 42, 42, 0.77);
+    color: antiquewhite;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}

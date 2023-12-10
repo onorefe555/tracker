@@ -8,13 +8,236 @@
     <link rel="stylesheet" href="expen.css">
 </head>
 <body>
-    <h3 >Expenses Tracker</h3>
-    <h1>0</h1>
-    <button>clear all</button>
-    <div class="container">
-        <h3>series of code</h3>
-        <p>hjcbcjkjjkckjkjcccjc</p>
-    </div>
+ <style>
+     body{
+    display:flex;
+    display-direction:column;
+    justify-content: ;
+    font-size:20px;
+    align-items: ;
+    min-height :100vh;
+    margin-top:3px;
+    background: radial-gradient(ellipse at 47% 49%, rgba(49, 20, 90, 1) 20%, rgba(36, 36, 35, 1) 33%, rgba(12, 137, 153, 0.99) 50%, rgba(52, 33, 86, 1) 73%, rgba(36, 13, 36, 1) 100%);
+}
+.container{
+    background:url(./img/y.jpeg);
+    background-repeat:no-repeat;
+    background-position: center ;
+    background-size:cover;
+    width :800px;
+    margin :10px auto;
+    min-height:20px;
+    padding :20px;
+} 
+.input-cont{
+    display:flex;
+    justify-content:space-between;
+    margin:5px;
+    background:;
+    padding:10px;
+    flex:1;
+}
+.li_container{
+    display :flex;
+    justify-content:space-between;
+}
+.h3{
+    text-align: center ;
+    color: cyan;
+    font-size:22px;
+}
+.btn_container {
+    display :flex;
+    justify-content:space-between;
+}
+button{
+    background: purple;
+    padding:5px 10px;
+    border:none;
+    font-weight :solid;
+    margin:10px 20px; 
+    color:white;
+    width: 100%;
+}
+label{
+    color:white;
+}
+ul{
+    color:white;
+}
+::placeholder {
+    background: black;
+    padding:10px;
+    color:purple;
+}
+input{
+    color: purple ;
+    background: black;
+    color:white;
+}
 
+ </style>
+    <div class="container">
+        <h3 class="h3">Rehoboth Apostolic Assembly</h3>
+        <div class="input-cont">
+            
+            <div>
+            <label>Name:</label>
+            <input type ="text" id="name_el"placeholder ="Enter your name here">
+        </div>
+        
+        <div>
+            <label>Address:</label>
+            <input type ="text" id="address_el"placeholder ="Enter your address here">
+        </div>
+        
+        <div>
+            <label>Phone No:</label>
+            <input type ="number" id="phone_el"placeholder ="Enter your phone here">
+        </div>
+        
+        </div>
+        
+        <div class ="li_container">
+            
+            <div>
+            <label>List Of Name</label>
+            <ul id="li_name_el">
+                
+            </ul>
+        </div>
+        
+        <div>
+            <label>List Of Address</label>
+            <ul id="li_ad_el">
+                
+            </ul>
+        </div>
+        
+        <div>
+            <label>List Of Phone Number</label>
+            <ul id="li_pho_el">
+                
+            </ul>
+        </div>
+        
+        </div>
+        
+        <div class ="btn_container">
+            <div>
+            <button id="btn_name">Add Name</button>
+        </div>
+        
+        <div>
+            <button id="btn_ad">Add Address</button>
+        </div>
+        
+        <div>
+            <button id="btn_pho">Add Phone Number</button>
+        </div>
+        
+        <div>
+            <button id="btn_all">Add All</button>
+        </div>
+        
+        <div>
+            <button id="delete_el">Delete All</button>
+        </div>
+        
+        </div>
+    </div>
+    <script>
+        const name_el=document.querySelector("#name_el");
+const phone_el=document.querySelector("#phone_el");
+const address_el=document.querySelector("#address_el");
+const li_name_el=document.getElementById("li_name_el")
+const li_pho_el=document.getElementById("li_pho_el")
+const li_ad_el=document.getElementById("li_ad_el");
+const btn_all=document.getElementById("btn_all")
+const delete_el=document.getElementById("delete_el")
+
+
+let phoneStore=[]
+let nameStore=[]
+let addressStore=[]
+
+delete_el.addEventListener("dblclick",function () {
+    localStorage.clear()
+    phoneStore=[]
+    nameStore=[]
+    addressStore=[]
+    renderPhone()
+    renderAddress()
+    renderName()
+        console.log("double clicked")
+    })
+const localNameStorage = JSON.parse(localStorage.getItem("nameStore"))
+if(localNameStorage){
+    nameStore=localNameStorage
+    renderName()
+}
+const localAddressStorage=JSON.parse(localStorage.getItem("addressStore"))
+if(localAddressStorage){
+    addressStore=localAddressStorage
+    renderAddress()
+}
+const localPhoneStorage=JSON.parse(localStorage.getItem("phoneStore"))
+if(localPhoneStorage){
+    phoneStore=localPhoneStorage
+    renderPhone()
+}
+const btn_name=document.getElementById("btn_name")
+const btn_ad=document.getElementById("btn_ad")
+ const btn_pho=document.getElementById("btn_pho")
+ 
+ 
+ 
+btn_name.addEventListener("click",function () {
+    nameStore.push(name_el.value)
+    renderName()
+    localStorage.setItem("nameStore",JSON.stringify(nameStore))
+}) 
+btn_ad.addEventListener("click",function () {
+    addressStore.push(address_el.value)
+    renderAddress()
+    localStorage.setItem("addressStore",JSON.stringify(addressStore))
+}) 
+btn_pho.addEventListener("click",function () {
+    phoneStore.push(phone_el.value)
+    renderPhone()
+    localStorage.setItem("phoneStore",JSON.stringify(phoneStore))
+}) 
+function renderName() {
+    let nameList=""
+    for(let i=0; i<nameStore.length; i++){
+        nameList+="<li>"+nameStore[i]+"</li>"
+    }
+    li_name_el.innerHTML=nameList
+}
+function renderAddress() {
+    let addressList=""
+ for(let k=0; k<addressStore.length; k++){
+     addressList+="<li>"+addressStore[k]+"</li>"
+    }
+    li_ad_el.innerHTML=addressList
+}
+function renderPhone() {
+    let phoneList=""
+ for(let k=0; k<phoneStore.length; k++){
+     phoneList+="<li>"+phoneStore[k]+"</li>"
+    }
+    li_pho_el.innerHTML=phoneList
+}
+btn_all.addEventListener("click",function () {
+    renderPhone()
+    renderAddress()
+    renderName()
+    nameStore.push(name_el.value)
+    addressStore.push(address_el.value)
+    phoneStore.push(phone_el.value)
+    
+})
+
+    </script>
 </body>
 </html>
